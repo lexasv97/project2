@@ -1,0 +1,25 @@
+<div id="form">
+  <h2>Log in</h2>
+
+  <form action="/creator-auth/creator-login" method="POST">
+
+    <label> Email
+      <input type="email" name="email" placeholder="ironhack@ironhack.com" />
+    </label>
+
+    <label>Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <button type="submit">Login</button>
+
+    <div>
+    <div>Don't have an account yet?</div>
+    <a href="/creator-auth/creator-signup">Sign up</a>
+</div>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>

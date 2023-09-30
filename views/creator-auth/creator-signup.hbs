@@ -1,0 +1,33 @@
+<div id="form">
+  <h2>Sign up</h2>
+  <form action="/creator-auth/creator-signup" method="POST">
+
+    <label> Full Name
+      <input type="text" name="fullName" placeholder="ironhacker" />
+    </label>
+
+    <label> Email
+      <input type="email" name="email" placeholder="ironhack@ironhack.com" />
+    </label>
+
+    <label> Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+    <label> Occupation
+      <input type="text" name="occupation" placeholder="yoga" />
+    </label>
+
+    <button type="submit">Create account</button>
+
+<div>
+    <div>Already have an account?</div>
+    <a href="/creator-auth/creator-login">Log in</a>
+</div>
+
+    {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
+  </form>
+</div>
