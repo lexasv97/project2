@@ -44,7 +44,7 @@ router.post('/creator-signup', (req,res,next) => {
                 console.log('Newly created creator is: ', createdCreator);
                 req.session.creator = createdCreator;
                 console.log('Session after signup ===> ', req.session)
-                res.redirect('/creators/profile');
+                res.redirect('/users/creator-profile');
             })
             .catch((error) => {
                 console.log(error);
@@ -88,7 +88,7 @@ router.post('/creator-login', (req,res,next) => {
 
             req.session.creator = creator
             console.log("Session after success ===>", req.session)
-            res.redirect('/creators/profile')
+            res.redirect('/users/creator-profile')
         } else {
             console.log("Incorrect password. ");
             res.render('creator-auth/creator-login.hbs', { errorMessage: 'Creator not found and/or incorrect password.' } )
