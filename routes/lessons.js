@@ -67,10 +67,16 @@ router.get('/details/:lessonId', (req,res,next) => {
     .populate('owner')
     .populate({
         path:'reviews',
-        populate: {path: 'creator'}
+        populate: {path: 'user'}
     })
     .then((lesson) => {
-        res.render('lessons/lesson-details.hbs', {lesson, reviews: lesson.reviews})
+        console.log(lesson)
+        let isOwner = false
+        if(req.session && req.session.creator){
+
+             isOwner = req.session.creator._id === String(lesson.owner._id)
+        }
+        res.render('lessons/lesson-details.hbs', {lesson, reviews: lesson.reviews, isOwner})
     })
     .catch((err) => {
         console.log(err)

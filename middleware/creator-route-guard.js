@@ -1,6 +1,6 @@
 const isCreatorLoggedIn = (req,res,next) => {
     if (!req.session.creator) {
-        return res.redirect('creator-auth/creator-login');
+        return res.redirect('/creator-auth/creator-login');
     }
     next();
 }

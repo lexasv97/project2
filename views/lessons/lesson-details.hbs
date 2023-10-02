@@ -9,7 +9,7 @@
 
     <p>Added by: {{lesson.owner.fullName}}</p>
 
-    {{#if canCreatorEdit}}
+    {{#if isOwner}}
 
     <a href="/lessons/edit/{{lesson._id}}">Edit lesson</a>
     <a href="/lessons/delete/{{lesson._id}}">Delete lesson</a>
@@ -18,7 +18,7 @@
 
     <hr>
 
-    {{#unless canCreatorEdit}}
+    {{#unless isOwner}}
 
     <h4>Leave a review</h4>
     <form id="review" action="/reviews/new/{{lesson._id}}" method="post">
