@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
 
-    <nav>
-      <a href="/">Home</a>
-      
-      <a href="/lessons/all">See lessons</a>
+<head>
+  <title>{{title}}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
 
-      <a href="/creator-auth/creator-login">Creator</a>
+<body>
 
-       <a href="/lessons/all">See my lessons</a>
-    <a href="/lessons/new">Add a lesson</a>
+  <nav>
+    <a href="/">Home</a>
 
-    </nav>
+    <a href="/lessons/all">All lessons</a>
 
-    {{{body}}}
+    {{#if loggedInCreator}}
 
-  </body>
+    <a href="/creators/creator-profile">My Profile</a>
+
+    <a href="/creator-auth/creator-logout">Log out</a>
+
+    {{else}}
+
+    <a href="/creator-auth/creator-login">Creator</a>
+
+    {{/if}}
+
+  </nav>
+
+  {{{body}}}
+
+</body>
+
 </html>

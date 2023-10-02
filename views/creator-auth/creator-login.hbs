@@ -8,20 +8,20 @@
     </label>
 
     <label>Password</label>
-      <input type="password" name="password" placeholder="********" />
-    
+    <input type="password" name="password" placeholder="********" />
+
 
     <button type="submit">Login</button>
 
-     <input type="reset" value="Reset">
+    <input type="reset" value="Reset">
 
     <div>
-    <div>Don't have an account yet?</div>
-    <a href="/creator-auth/creator-signup">Sign up</a>
-</div>
+      <div>Don't have an account yet?</div>
+      <a href="/creator-auth/creator-signup">Sign up</a>
+    </div>
 
     {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
+    <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
 </div>

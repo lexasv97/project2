@@ -14,7 +14,8 @@ router.get('/all', (req,res,next) => {
     Lesson.find()
     .populate('owner')
     .then((lessons) => {
-        res.render('lessons/all-lessons.hbs', lessons)
+        console.log("LESSONS ====>", lessons)
+        res.render('lessons/all-lessons.hbs', {lessons})
     })
     .catch((err) => {
         console.log(err)
@@ -28,6 +29,11 @@ router.get('/new', isCreatorLoggedIn, (req, res, next) => {
     
 })
 
+// router.get('/new', !isCreatorLoggedIn, (req,res,next) => {
+    
+//     res.redirect('/creators/creator-profile')
+// })
+
 router.post('/new', isCreatorLoggedIn, (req,res,next) => {
 
     const { name, description, imageUrl } = req.body
@@ -39,8 +45,15 @@ router.post('/new', isCreatorLoggedIn, (req,res,next) => {
         owner: req.session.creator._id
     })
     .then((createdLesson) => {
-        //
         res.redirect('/lessons/all')
+        Creator.findByIdAndUpdate(
+            req.params.lessonId,
+            {
+                $push: {lessons: createdLesson._id}
+            },
+            {new: true}
+        )
+
     })
     .catch((err) => {
         console.log(err)
@@ -48,7 +61,7 @@ router.post('/new', isCreatorLoggedIn, (req,res,next) => {
     })
 })
 
-router.get('/details/:lessonId', isCreatorLoggedIn, canCreatorEdit, (req,res,next) => {
+router.get('/details/:lessonId', (req,res,next) => {
 
     Lesson.findById(req.params.lessonId)
     .populate('owner')
@@ -57,7 +70,7 @@ router.get('/details/:lessonId', isCreatorLoggedIn, canCreatorEdit, (req,res,nex
         populate: {path: 'creator'}
     })
     .then((lesson) => {
-        res.render('lessons/lesson-details.hbs', {lesson, canCreatorEdit: req.session.creator.canCreatorEdit, reviews: lesson.reviews})
+        res.render('lessons/lesson-details.hbs', {lesson, reviews: lesson.reviews})
     })
     .catch((err) => {
         console.log(err)
@@ -69,7 +82,7 @@ router.get('/edit/:lessonId', isCreatorLoggedIn, isCreatorOwner, (req,res,next) 
 
     Lesson.findById(req.params.lessonId)
     .then((lesson) => {
-        res.render('lessons/edit-lesson.hbs', lesson)
+        res.render('lessons/edit-lessons.hbs', lesson)
     })
     .catch((err) => {
         console.log(err)
@@ -100,6 +113,18 @@ router.get('/delete/:lessonId', isCreatorLoggedIn, isCreatorOwner, (req,res,next
     .then((deletedLesson) => {
         console.log("Deleted room ==>", deletedLesson)
         res.redirect('/lessons/all')
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+})
+router.get('/my-lessons',isCreatorLoggedIn, (req,res,next) => {
+    
+    Lesson.findById()
+    .populate('owner')
+    .then((myLessons) => {
+        res.render('lessons/my-lessons.hbs', myLessons)
     })
     .catch((err) => {
         console.log(err)

@@ -2,12 +2,16 @@
 
 {{#each lessons}}
 
-    <div>
+<div>
 
-        <h3>{{name}}</h3>
+    <h3>{{name}}</h3>
 
-        <a href="/lessons/details/{{_id}}">See details</a>
+    <img src={{imageUrl}} alt="lesson">
 
-    </div>
+    <p>added by: {{owner.fullName}}</p>
+
+    <a href="/lessons/details/{{_id}}">See details</a>
+
+</div>
 
 {{/each}}
