@@ -38,10 +38,32 @@ router.post('/new', isCreatorLoggedIn, (req,res,next) => {
         imageUrl,
         owner: req.session.creator._id
     })
-    .then((createdLesson))
+    .then((createdLesson) => {
+        //
+        res.redirect('/lessons/all')
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
 })
 
-//router.get('/details/:lessonId', isCreatorLoggedIn, canCreatorEdit, (req,res,next) => {})
+router.get('/details/:lessonId', isCreatorLoggedIn, canCreatorEdit, (req,res,next) => {
+
+    Lesson.findById(req.params.lessonId)
+    .populate('owner')
+    .populate({
+        path:'reviews',
+        populate: {path: 'creator'}
+    })
+    .then((lesson) => {
+        res.render('lessons/lesson-details.hbs', {lesson, canCreatorEdit: req.session.creator.canCreatorEdit, reviews: lesson.reviews})
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+})
 
 router.get('/edit/:lessonId', isCreatorLoggedIn, isCreatorOwner, (req,res,next) => {
 
