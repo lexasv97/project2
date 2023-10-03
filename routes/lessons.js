@@ -9,6 +9,8 @@ const isCreatorOwner = require('../middleware/isCreatorOwner')
 
 const canCreatorEdit = require('../middleware/canCreatorEdit')
 
+const {isUserLoggedIn} = require('../middleware/user-route-guard')
+
 router.get('/all', (req,res,next) => {
     
     Lesson.find()
@@ -31,13 +33,14 @@ router.get('/new', isCreatorLoggedIn, (req, res, next) => {
 
 router.post('/new', isCreatorLoggedIn, (req,res,next) => {
 
-    const { name, description, imageUrl, price } = req.body
+    const { name, description, imageUrl, price, type } = req.body
 
     Lesson.create({
         name,
         description,
         imageUrl,
         price,
+        type,
         owner: req.session.creator._id
     })
     .then((createdLesson) => {
@@ -121,12 +124,27 @@ router.get('/delete/:lessonId', isCreatorLoggedIn, isCreatorOwner, (req,res,next
         next(err)
     })
 })
-router.get('/my-lessons',isCreatorLoggedIn, (req,res,next) => {
+
+router.get('/find', isUserLoggedIn, (req, res, next) => {
     
-    Lesson.findById()
-    .populate('owner')
-    .then((myLessons) => {
-        res.render('lessons/my-lessons.hbs', myLessons)
+    Lesson.find({type: req.query.lessonType})
+    .then((lesson) => {
+        console.log(lesson)
+        res.render('lessons/find-lesson.hbs', lesson)
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+    
+})
+
+router.get('/results', isUserLoggedIn, (req, res, next) => {
+
+    Lesson.find({type: req.query.lessonType})
+    .then((lessons) => {
+        console.log(lessons)
+        res.render('lessons/results-lessons.hbs', {lessons})
     })
     .catch((err) => {
         console.log(err)

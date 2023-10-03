@@ -4,7 +4,8 @@ const lessonSchema = new Schema({
     description: { type: String },
     imageUrl: { type: String },
     price: {type: Number},
-    owner: { type: Schema.Types.ObjectId, ref: "Creator" },
+    type: {type: String },
+    owner: {type: Schema.Types.ObjectId, ref: "Creator" },
     reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }]
   },
   {
