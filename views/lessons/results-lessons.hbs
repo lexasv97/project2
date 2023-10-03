@@ -1,0 +1,17 @@
+<h2>Results</h2>
+
+{{#each lessons}}
+
+<div>
+
+    <h3>{{name}}</h3>
+
+    <img src={{imageUrl}} alt="lesson">
+
+    <p>added by: {{owner.fullName}}</p>
+
+    <a href="/lessons/details/{{_id}}">See details</a>
+
+</div>
+
+{{/each}}

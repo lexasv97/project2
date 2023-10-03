@@ -4,7 +4,7 @@ var router = express.Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 
-const Creator = require('../models/Creator')
+const User = require('../models/User')
 
 router.get('/user-signup', (req, res, next) => {
 
@@ -41,10 +41,10 @@ router.post('/user-signup', (req,res,next) => {
                 })
             })
             .then((createdUser) => {
-                console.log('Newly created creator is: ', createdUser);
-                req.session.creator = createdUser;
+                console.log('Newly created user is: ', createdUser);
+                req.session.user = createdUser;
                 console.log('Session after signup ===> ', req.session)
-                res.redirect('/user/user-profile');
+                res.redirect('/users/user-profile');
             })
             .catch((error) => {
                 console.log(error);

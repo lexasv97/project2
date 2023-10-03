@@ -1,14 +1,14 @@
 <div>
 
-    <h2>Welcome, {{user.fullName}}</h2>
+    <h2>Welcome, {{ user.fullName }}</h2>
 
     <div>Log out
           <a href="/user-auth/user-logout">Log out</a>
     </div>
 
    
-    <a href="/lessons/all">See my lessons</a>
-    <a href="/lessons/new">Find a lesson</a>
+    <a href="/lessons/all">See All Lessons</a>
+    <a href="/lessons/find">Find a Lesson</a>
 
     {{#if lessons}}
 
