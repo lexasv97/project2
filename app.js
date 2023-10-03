@@ -9,11 +9,12 @@ var session = require('express-session')
 var MongoStore = require('connect-mongo')
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var usersRouter = require('./routes/user');
 var creatorAuthRouter = require('./routes/creators-auth')
 var lessonsRouter = require('./routes/lessons')
 var creatorRouter = require('./routes/creators')
 var reviewsRouter = require('./routes/reviews')
+var userAuthRouter = require('./routes/user-auth')
 
 
 var app = express();
@@ -66,12 +67,20 @@ app.use((req, res, next) => {
   next()
 })
 
+app.use((req, res, next) => {
+  if(req.session){
+    app.locals.loggedInUser = req.session.user
+  }
+  next()
+})
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/creator-auth', creatorAuthRouter)
 app.use('/lessons', lessonsRouter)
 app.use('/creators', creatorRouter)
 app.use('/reviews', reviewsRouter);
+app.use('/user-auth', userAuthRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
