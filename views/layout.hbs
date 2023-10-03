@@ -23,6 +23,16 @@
 
     {{/if}}
 
+    {{#if loggedInUser}}
+
+    <a href="/creator/creator-profile">My Profile</a>
+
+    {{else}}
+
+    <a href="/creator-auth/creator-login">Creator</a>
+
+    {{/if}}
+
   </nav>
 
   {{{body}}}

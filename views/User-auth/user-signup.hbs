@@ -1,0 +1,32 @@
+<div id="form">
+  <h2>Create a User Profile</h2>
+  <form action="/user-auth/user-signup" method="POST">
+
+    <label> Full Name
+      <input type="text" name="fullName" placeholder="John Smith" />
+    </label>
+
+    <label> Email
+      <input type="email" name="email" placeholder="Johnsmith@hotmail.com" />
+    </label>
+
+    <label> Password
+      <input type="password" name="password" placeholder="********" />
+    </label>
+
+
+    <button type="submit">Create account</button>
+
+     <input type="reset" value="Reset">
+
+<div>
+    <div>Already have an account?</div>
+    <a href="/user-auth/user-login">Log in</a>
+</div>
+
+    {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
+  </form>
+</div>

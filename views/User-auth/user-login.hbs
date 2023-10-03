@@ -1,0 +1,27 @@
+<div id="form">
+  <h2>Log in</h2>
+
+  <form action="/user-auth/user-login" method="POST">
+
+    <label> Email
+      <input type="email" name="email" placeholder="JohnSmith@hotmail.com" />
+    </label>
+
+    <label>Password</label>
+      <input type="password" name="password" placeholder="********" />
+    
+
+    <button type="submit">Login</button>
+
+     <input type="reset" value="Reset">
+
+    <div>
+    <div>Don't have an account yet?</div>
+    <a href="/user-auth/user-signup">Sign up</a>
+</div>
+
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+  </form>
+</div>

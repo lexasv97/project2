@@ -1,0 +1,26 @@
+<div>
+
+    <h2>Welcome, {{user.fullName}}</h2>
+
+    <div>Log out
+          <a href="/user-auth/user-logout">Log out</a>
+    </div>
+
+   
+    <a href="/lessons/all">See my lessons</a>
+    <a href="/lessons/new">Find a lesson</a>
+
+    {{#if lessons}}
+
+        <h3>Listed lessons</h3>
+
+        {{#each lessons}}
+
+            <a href="/lessons/details/{{_id}}">{{name}}</a>
+
+        {{/each}}
+
+    {{/if}}
+
+
+</div>
