@@ -29,19 +29,15 @@ router.get('/new', isCreatorLoggedIn, (req, res, next) => {
     
 })
 
-// router.get('/new', !isCreatorLoggedIn, (req,res,next) => {
-    
-//     res.redirect('/creators/creator-profile')
-// })
-
 router.post('/new', isCreatorLoggedIn, (req,res,next) => {
 
-    const { name, description, imageUrl } = req.body
+    const { name, description, imageUrl, price } = req.body
 
     Lesson.create({
         name,
         description,
         imageUrl,
+        price,
         owner: req.session.creator._id
     })
     .then((createdLesson) => {

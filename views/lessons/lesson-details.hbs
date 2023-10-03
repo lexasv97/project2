@@ -9,6 +9,8 @@
 
     <p>Added by: {{lesson.owner.fullName}}</p>
 
+     <p>Price: ${{lesson.price}}</p>
+
     {{#if isOwner}}
 
     <a href="/lessons/edit/{{lesson._id}}">Edit lesson</a>
@@ -16,9 +18,11 @@
 
     {{/if}}
 
-    <hr>
-
     {{#unless isOwner}}
+
+    <button>Buy lesson</button>
+
+      <hr>
 
     <h4>Leave a review</h4>
     <form id="review" action="/reviews/new/{{lesson._id}}" method="post">

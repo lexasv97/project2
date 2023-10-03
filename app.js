@@ -24,6 +24,13 @@ app.set('view engine', 'hbs');
 
 app.set('trust proxy', 1);
 app.enable('trust proxy');
+
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').load()
+// }
+
+// const stripeSecretKey = process.env.STRIPE_SECRET_KEY
+// const stripePublicKey=process.env.STRIPE_PUBLIC_KEY
  
 // use session
 app.use(
