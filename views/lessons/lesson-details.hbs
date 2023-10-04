@@ -18,9 +18,13 @@
 
     {{/if}}
 
-    {{#unless isOwner}}
+    {{#unless isCreatorOwner}}
 
     <button>Buy lesson</button>
+
+    {{/unless}}
+
+    {{#if isUserLoggedIn}}
 
       <hr>
 
@@ -41,7 +45,7 @@
         <button type="submit">Submit Review</button>
     </form>
 
-    {{/unless}}
+    {{/if}}
 
 
     {{#if reviews}}
@@ -49,7 +53,7 @@
     {{#each reviews}}
 
     <p>{{comment}}</p>
-    <h6>- {{creator.fullName}}</h6>
+    <h6>- {{user.fullName}}</h6>
 
     {{/each}}
 

@@ -4,16 +4,14 @@ var router = express.Router();
 const Review = require('../models/Review')
 const Lesson = require('../models/Lesson')
 
-const { isCreatorLoggedIn } = require('../middleware/creator-route-guard')
+const { isUserLoggedIn } = require('../middleware/user-route-guard');
 
-const isCreatorNotOwner = require('../middleware/isCreatorNotOwner')
-
-
-router.post('/new/:lessonId', isCreatorLoggedIn, isCreatorNotOwner, (req, res, next) => {      // isUserLoggedIn !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+router.post('/new/:lessonId', isUserLoggedIn, (req, res, next) => {      
 
     Review.create({
-        creator: req.session.creator._id,
-        comment: req.body.comment
+        user: req.session.user._id,
+        comment: req.body.comment,
+        rating: req.body.rating
     })
         .then((newReview) => {
             return Lesson.findByIdAndUpdate(

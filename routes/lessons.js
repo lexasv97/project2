@@ -125,7 +125,7 @@ router.get('/delete/:lessonId', isCreatorLoggedIn, isCreatorOwner, (req,res,next
     })
 })
 
-router.get('/find', isUserLoggedIn, (req, res, next) => {
+router.get('/find', (req, res, next) => {
     
     Lesson.find({type: req.query.lessonType})
     .then((lesson) => {
@@ -139,7 +139,7 @@ router.get('/find', isUserLoggedIn, (req, res, next) => {
     
 })
 
-router.get('/results', isUserLoggedIn, (req, res, next) => {
+router.get('/results', (req, res, next) => {
 
     Lesson.find({type: req.query.lessonType})
     .then((lessons) => {
