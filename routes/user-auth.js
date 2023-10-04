@@ -44,7 +44,7 @@ router.post('/user-signup', (req,res,next) => {
                 console.log('Newly created user is: ', createdUser);
                 req.session.user = createdUser;
                 console.log('Session after signup ===> ', req.session)
-                res.redirect('/users/user-profile');
+                res.redirect('/user/user-profile');
             })
             .catch((error) => {
                 console.log(error);
