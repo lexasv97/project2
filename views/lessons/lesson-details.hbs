@@ -9,7 +9,7 @@
 
     <p>Added by: {{lesson.owner.fullName}}</p>
 
-     <p>Price: ${{lesson.price}}</p>
+    <p>Price: ${{lesson.price}}</p>
 
     {{#if isOwner}}
 
@@ -18,28 +18,26 @@
 
     {{/if}}
 
-    {{#unless isCreatorOwner}}
+    {{#unless isOwner}}
 
-    <button>Buy lesson</button>
+   <button><a href ="/stripe/{{lesson._id}}">Buy lesson</a></button>
 
     {{/unless}}
 
     {{#if isUserLoggedIn}}
 
-      <hr>
+    <hr>
 
     <h4>Leave a review</h4>
     <form id="review" action="/reviews/new/{{lesson._id}}" method="post">
-
-        <label> Rating:
-            <select value=“” onChange={handleFilter}>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
-        </label>
+        <label>Rating: </label>
+        <select value="rating" name="rating">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
         <label for="review">Review:</label>
         <input type="text" name="comment" id="review">
         <button type="submit">Submit Review</button>
@@ -48,11 +46,14 @@
     {{/if}}
 
 
-    {{#if reviews}}
+    {{#if lesson.reviews}}
 
-    {{#each reviews}}
+    {{#each lesson.reviews}}
 
-    <p>{{comment}}</p>
+    <hr>
+
+    <p>Comment: {{comment}}</p>
+    <p>Rating: {{rating}}</p>
     <h6>- {{user.fullName}}</h6>
 
     {{/each}}

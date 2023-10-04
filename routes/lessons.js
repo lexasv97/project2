@@ -69,7 +69,7 @@ router.get('/details/:lessonId', (req,res,next) => {
         populate: {path: 'user'}
     })
     .then((lesson) => {
-        console.log(lesson)
+        console.log("This is found lesson ===>", lesson)
         let isOwner = false
         if(req.session && req.session.creator){
 

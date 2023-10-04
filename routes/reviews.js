@@ -6,7 +6,9 @@ const Lesson = require('../models/Lesson')
 
 const { isUserLoggedIn } = require('../middleware/user-route-guard');
 
-router.post('/new/:lessonId', isUserLoggedIn, (req, res, next) => {      
+router.post('/new/:lessonId', isUserLoggedIn, (req, res, next) => {  
+    console.log("REQ.BODY ====>", req.body) 
+    console.log("LESSON ID ====> ", req.params.lessonId)   
 
     Review.create({
         user: req.session.user._id,
@@ -14,15 +16,17 @@ router.post('/new/:lessonId', isUserLoggedIn, (req, res, next) => {
         rating: req.body.rating
     })
         .then((newReview) => {
+            console.log("NEW REVIEW ===>", newReview)
             return Lesson.findByIdAndUpdate(
                 req.params.lessonId,
                 {
-                    $push: { review: newReview._id }
+                    $push: { reviews: newReview._id }
                 },
                 { new: true }
             )
         })
         .then((lessonWithReview) => {
+            console.log("Lesson after review ===>", lessonWithReview)
             res.redirect(`/lessons/details/${lessonWithReview._id}`)
         })
         .catch((err) => {
