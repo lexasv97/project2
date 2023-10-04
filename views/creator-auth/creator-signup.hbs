@@ -14,27 +14,26 @@
       <input type="password" name="password" placeholder="********" />
     </label>
 
-    <label> Occupation:
+    <label> Occupation: </label>
 
-    <select value="occupation">
-          <option value="you-name-it">You name it</option>
-          <option value="yoga">Yoga</option>
-          <option value="crossfit">Crossfit</option>
-          <option value="dancing">Dancing</option> 
+    <select value="occupation" name="occupation">
+      <option value="you-name-it">You name it</option>
+      <option value="yoga">Yoga</option>
+      <option value="crossfit">Crossfit</option>
+      <option value="dancing">Dancing</option>
     </select>
-    </label>
 
     <button type="submit">Create account</button>
 
-     <input type="reset" value="Reset">
+    <input type="reset" value="Reset">
 
-<div>
-    <div>Already have an account?</div>
-    <a href="/creator-auth/creator-login">Log in</a>
-</div>
+    <div>
+      <div>Already have an account?</div>
+      <a href="/creator-auth/creator-login">Log in</a>
+    </div>
 
     {{#if errorMessage}}
-        <p class="error">{{errorMessage}}</p>
+    <p class="error">{{errorMessage}}</p>
     {{/if}}
 
   </form>

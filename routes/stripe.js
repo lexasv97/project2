@@ -35,7 +35,7 @@ router.get('/:lessonId', isUserLoggedIn, async (req, res, next) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: 'https://www.youtube.com/watch?v=ilwo8yBNSIM', 
+            success_url: `http://localhost:3000/lessons/payment-confirmation/${lessonId}`, 
             cancel_url: 'http://localhost:3000/lessons/all',
         });
         console.log("Session ===============>", session);

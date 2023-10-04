@@ -11,8 +11,22 @@ const {isUserLoggedIn} = require('../middleware/user-route-guard')
 const User = require('../models/User');
 
 router.get('/user-profile', isUserLoggedIn, (req, res, next) => {
-  
-    res.render('users/user-profile.hbs', {user: req.session.user})
+
+    User.findById(req.session.user._id)
+    .populate({
+        path: "paidLessons",
+        populate: {
+        path: "owner"
+        }
+    })
+    .then((foundUser) => {
+        res.render('users/user-profile.hbs', foundUser)
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+    
 });
 
 router.get('/update-user-profile', isUserLoggedIn, (req, res, next) => {

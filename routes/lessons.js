@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-const Lesson = require('../models/Lesson')
+const Lesson = require('../models/Lesson');
+
+const User = require('../models/User');
 
 const {isCreatorLoggedIn} = require('../middleware/creator-route-guard')
 
@@ -150,6 +152,27 @@ router.get('/results', (req, res, next) => {
         console.log(err)
         next(err)
     })
+})
+
+router.get('/payment-confirmation/:lessonId', isUserLoggedIn, (req,res,next) => {
+    const lessonId = req.params.lessonId;
+    User.findByIdAndUpdate(
+        req.session.user._id,
+        {
+            $push: {paidLessons: lessonId}
+        },
+        {new: true}
+    )
+    .then((updatedUser) => {
+        req.session.user = updatedUser;
+        res.render('lessons/payment-confirmation-page.hbs')
+
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+    
 })
 
 module.exports = router;
