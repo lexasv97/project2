@@ -1,19 +1,35 @@
-<h2>Results</h2>
+<div class="center">
+    <h2>Results</h2>
+</div>
+{{#if lessons}}
 
-{{#each lessons}}
+<div class="lesson">
+    {{#each lessons}}
 
-<div>
+    <div>
 
-    <h3>{{name}}</h3>
+        <h3>{{name}}</h3>
 
-    <img src={{imageUrl}} alt="lesson">
+        <img src={{imageUrl}} alt="lesson">
 
-    <p>added by: {{owner.fullName}}</p>
+        <p>added by: {{owner.fullName}}</p>
 
-    <a href="/lessons/details/{{_id}}">See details</a>
+        <a href="/lessons/details/{{_id}}">See details</a>
+
+    </div>
+
+    {{/each}}
 
 </div>
 
-{{/each}}
+{{else}}
 
-<a class="button" href="/lessons/find">Find other lessons</a>
+<div class="center">
+    <p>No added lessons found</p>
+</div>
+
+{{/if}}
+
+<div class="center">
+    <a class="button" href="/lessons/find">Find other lessons</a>
+</div>
