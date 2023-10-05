@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-const Lesson = require('../models/Lesson')
+const Lesson = require('../models/Lesson');
+
+const User = require('../models/User');
 
 const {isCreatorLoggedIn} = require('../middleware/creator-route-guard')
 
@@ -33,7 +35,7 @@ router.get('/new', isCreatorLoggedIn, (req, res, next) => {
 
 router.post('/new', isCreatorLoggedIn, (req,res,next) => {
 
-    const { name, description, imageUrl, price, type } = req.body
+    const { name, description, imageUrl, price, type, format } = req.body
 
     Lesson.create({
         name,
@@ -41,6 +43,7 @@ router.post('/new', isCreatorLoggedIn, (req,res,next) => {
         imageUrl,
         price,
         type,
+        format,
         owner: req.session.creator._id
     })
     .then((createdLesson) => {
@@ -69,7 +72,7 @@ router.get('/details/:lessonId', (req,res,next) => {
         populate: {path: 'user'}
     })
     .then((lesson) => {
-        console.log(lesson)
+        console.log("This is found lesson ===>", lesson)
         let isOwner = false
         if(req.session && req.session.creator){
 
@@ -125,7 +128,7 @@ router.get('/delete/:lessonId', isCreatorLoggedIn, isCreatorOwner, (req,res,next
     })
 })
 
-router.get('/find', isUserLoggedIn, (req, res, next) => {
+router.get('/find', (req, res, next) => {
     
     Lesson.find({type: req.query.lessonType})
     .then((lesson) => {
@@ -139,7 +142,7 @@ router.get('/find', isUserLoggedIn, (req, res, next) => {
     
 })
 
-router.get('/results', isUserLoggedIn, (req, res, next) => {
+router.get('/results', (req, res, next) => {
 
     Lesson.find({type: req.query.lessonType})
     .then((lessons) => {
@@ -150,6 +153,27 @@ router.get('/results', isUserLoggedIn, (req, res, next) => {
         console.log(err)
         next(err)
     })
+})
+
+router.get('/payment-confirmation/:lessonId', isUserLoggedIn, (req,res,next) => {
+    const lessonId = req.params.lessonId;
+    User.findByIdAndUpdate(
+        req.session.user._id,
+        {
+            $push: {paidLessons: lessonId}
+        },
+        {new: true}
+    )
+    .then((updatedUser) => {
+        req.session.user = updatedUser;
+        res.render('lessons/payment-confirmation-page.hbs')
+
+    })
+    .catch((err) => {
+        console.log(err)
+        next(err)
+    })
+    
 })
 
 module.exports = router;

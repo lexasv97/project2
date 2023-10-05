@@ -7,6 +7,7 @@ const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 
 const { isCreatorLoggedIn } = require('../middleware/creator-route-guard');
+
 const Creator = require('../models/Creator');
 
 router.get('/creator-profile', isCreatorLoggedIn, (req, res, next) => {

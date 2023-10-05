@@ -11,18 +11,22 @@
     <label for="imageUrl">Image</label>
     <input type="text" name="imageUrl" id="imageUrl">
 
-     <label> Type:
-
-    <select value=Type:” onChange={handleFilter}>
+    <label for="type">Type: </label>
+    <select name="type" value="type">
           <option value="you-name-it">You name it</option>
           <option value="yoga">Yoga</option>
           <option value="crossfit">Crossfit</option>
           <option value="dancing">Dancing</option> 
     </select>
-    </label>
 
      <label for="price">Set price</label>
     <input type="number" name="price" id="price">
+
+    <label for="format">Format: </label>
+     <select name="format" value="format">
+          <option value="online">Online</option>
+          <option value="in-person">In-person</option>
+    </select>
 
     <button type="submit">Add lesson</button>
 

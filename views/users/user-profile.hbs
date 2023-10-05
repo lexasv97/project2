@@ -2,11 +2,31 @@
 
     <h2>Welcome, {{ user.fullName }}</h2>
 
-    <div>Log out
-          <a href="/user-auth/user-logout">Log out</a>
-    </div>
+    <a href="/user/update-user-profile">Update Profile</a>
    
     <a href="/lessons/all">See All Lessons</a>
     <a href="/lessons/find">Find a Lesson</a>
+
+    {{#if paidLessons}}
+
+    <hr>
+
+    <h2>Paid lessons</h3>
+
+    {{#each paidLessons}}
+
+    <h3>{{name}}</h2>
+
+    <img src={{imageUrl}} alt="lesson">
+
+    <p>{{description}}</p>
+
+    <p>Format: {{format}}</p>
+
+    <p>Added by: {{owner.fullName}}</p>
+
+    {{/each}}
+
+    {{/if}}
 
 </div>
