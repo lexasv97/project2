@@ -1,31 +1,43 @@
-<h2>Update profile</h2>
+<div class="fix-center">
 
-<form action="/creators/update-creator-profile" method="post">
+    <div class="form">
 
-    <label for="fullName">Full Name: </label>
-    <input type="text" name="fullName" id="fullName" value="{{fullName}}">
+        <h2>Update profile</h2>
 
-    <label for="password">Password: </label>
-    <input type="password" name="password" placeholder="********">
+        <form class="login-signup" action="/creators/update-creator-profile" method="post">
 
-    <label for="email">Email: </label>
-    <input type="email" name="email" id="email" value="{{email}}">
+            <label for="fullName">Full Name: </label>
+            <input type="text" name="fullName" value="{{fullName}}">
 
-    <label> Occupation: 
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="password********">
 
-    <select value=“Occupation:” onChange={handleFilter}>
-          <option value="you-name-it">You name it</option>
-          <option value="yoga">Yoga</option>
-          <option value="crossfit">Crossfit</option>
-          <option value="dancing">Dancing</option> 
-    </select>
-    </label>
+            <label for="email">Email: </label>
+            <input type="email" name="email" value="{{email}}">
 
-    <button type="submit">Update</button>
-
+            <label> Occupation: </label>
 </form>
 
 <a href="/ai-profile-img/update-creator-img" >Update profile image</a>
 
+            <select class="input" value="occupation" name="occupation">
+                <option value="crossfit">CrossFit</option>
+                <option value="personal-training">Personal training</option>
+                <option value="yoga">Yoga</option>
+                <option value="meditation">Meditation</option>
+                <option value="zumba">Zumba</option>
+                <option value="pilates">Pilates</option>
+                <option value="cycling">Cycling</option>
+            </select>
+            <div class="center">
 
+                <button type="submit">Update</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
 

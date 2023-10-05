@@ -1,41 +1,51 @@
-<div id="form">
-  <h2>Create a Brand Profile</h2>
-  <form action="/creator-auth/creator-signup" method="POST">
+<div class="fix-center">
 
-    <label> Full Name:
-      <input type="text" name="fullName" placeholder="ironhacker" />
-    </label>
+  <div class="form">
 
-    <label> Email:
-      <input type="email" name="email" placeholder="creator@gmail.com" />
-    </label>
+    <h1>Create a Brand Profile</h1>
 
-    <label> Password:
-      <input type="password" name="password" placeholder="********" />
-    </label>
 
-    <label> Occupation:
+    <form class="login-signup" action="/creator-auth/creator-signup" method="POST">
 
-    <select value=“Occupation:” onChange={handleFilter}>
-          <option value="you-name-it">You name it</option>
-          <option value="yoga">Yoga</option>
-          <option value="crossfit">Crossfit</option>
-          <option value="dancing">Dancing</option> 
-    </select>
-    </label>
+      <label> Full Name:</label>
+      <input type="text" name="fullName" placeholder="Iron Hacker" />
 
-    <button type="submit">Create account</button>
 
-     <input type="reset" value="Reset">
+      <label> Email:</label>
+      <input type="email" name="email" placeholder="email@email.com" />
 
-<div>
-    <div>Already have an account?</div>
-    <a href="/creator-auth/creator-login">Log in</a>
-</div>
+      <label> Password: </label>
+      <input type="password" name="password" placeholder="password********" />
 
-    {{#if errorMessage}}
-        <p class="error">{{errorMessage}}</p>
-    {{/if}}
 
-  </form>
+      <label> Occupation: </label>
+
+      <select class="input" value="occupation" name="occupation">
+        <option value="crossfit">CrossFit</option>
+        <option value="personal-training">Personal training</option>
+        <option value="yoga">Yoga</option>
+        <option value="meditation">Meditation</option>
+        <option value="zumba">Zumba</option>
+        <option value="pilates">Pilates</option>
+        <option value="cycling">Cycling</option>
+      </select>
+
+      <div class="center">
+        <button type="submit">Create account</button>
+      </div>
+
+      <div class="center">
+        <p>Already have an account?
+          <a href="/creator-auth/creator-login">Log in</a>
+        </p>
+      </div>
+
+
+      {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+      {{/if}}
+
+    </form>
+  </div>
+
 </div>

@@ -3,47 +3,45 @@
 
 <head>
   <title>{{title}}</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+  <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 </head>
 
 <body>
 
-  <nav>
-    <a href="/">Home</a>
+  <div id="whole-page">
 
-    <a href="/lessons/all">All lessons</a>
+    <nav id="nav">
+      <a href="/">Home</a>
 
-    {{#if loggedInCreator}}
+      <a href="/lessons/all">All lessons</a>
 
-    <a href="/creators/creator-profile">My Profile</a>
+      <a href="/about">About</a>
 
-    {{else}}
+      {{#if loggedInCreator}}
 
-    <a class="nav-creator-user" href="/creator-auth/creator-login">Creator</a>
+      <a href="/creators/creator-profile">My Profile</a>
 
-    {{/if}}
+      <a href="/creator-auth/creator-logout">Log out</a>
 
-    {{#if loggedInUser}}
+      {{/if}}
 
-    <a href="/user/user-profile">My Profile</a>
+      {{#if loggedInUser}}
 
-    {{else}}
+      <a href="/user/user-profile">My Profile</a>
 
-    <a class="nav-creator-user" href="/user-auth/user-login">User</a>
+      <a href="/user-auth/user-logout">Log out</a>
 
-    {{/if}}
+      {{/if}}
 
-  </nav>
+    </nav>
 
-  {{{body}}}
+    {{{body}}}
 
-  <hr>
-  <p>
-    @Ironhackers 2023
-    <a href="/about">About us</a>
-  </p>
-
-
+  </div>
 </body>
 
 </html>

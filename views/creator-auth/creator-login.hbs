@@ -1,27 +1,36 @@
-<div id="form">
-  <h2>Log in</h2>
-
-  <form action="/creator-auth/creator-login" method="POST">
-
-    <label> Email
-      <input type="email" name="email" placeholder="ironhack@ironhack.com" />
-    </label>
-
-    <label>Password</label>
-    <input type="password" name="password" placeholder="********" />
-
-
-    <button type="submit">Login</button>
-
-    <input type="reset" value="Reset">
-
-    <div>
-      <div>Don't have an account yet?</div>
-      <a href="/creator-auth/creator-signup">Sign up</a>
+<div class="fix-center">
+  <div class="form">
+    <div class="center">
+      <h1>Let’s get you logged in</h1>
+    </div>
+    <div class="center">
+      <p>Enter your details here:</p>
     </div>
 
-    {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+    <form class="login-signup" action="/creator-auth/creator-login" method="POST">
+      <div class="center">
+
+        <input type="email" name="email" placeholder="email@email.com" />
+
+      </div>
+
+      <div class="center">
+
+        <input type="password" name="password" placeholder="password********" />
+      </div>
+      <div class="center">
+        <button type="submit">Login</button>
+      </div>
+
+      <div class="center">
+        <p>Don't have an account yet?
+          <a href="/creator-auth/creator-signup">Sign up</a>
+        </p>
+      </div>
+
+      {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+      {{/if}}
+    </form>
+  </div>
 </div>

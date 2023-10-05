@@ -1,18 +1,31 @@
-<h2>Find A Lesson</h2>
+<div class="fix-center">
 
-<form action="/lessons/results" method="get">
+      <div class="center">
 
-<label> Type of Lesson:
+            <h2>Find A Lesson</h2>
 
-    <select value=“Type:” name="lessonType">
-          <option value="you-name-it">You name it</option>
-          <option value="yoga">Yoga</option>
-          <option value="crossfit">Crossfit</option>
-          <option value="dancing">Dancing</option> 
-    </select>
+      </div>
 
-    </label>
+      <form class="login-signup" action="/lessons/results" method="get">
 
-     <button type="submit">Search</button>
+            <label> Type of Lesson:
 
-</form>
+                  <select class="input" value="type" name="lessonType">
+                        <option value="crossfit">CrossFit</option>
+                        <option value="personal-training">Personal training</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="meditation">Meditation</option>
+                        <option value="zumba">Zumba</option>
+                        <option value="pilates">Pilates</option>
+                        <option value="cycling">Cycling</option>
+                  </select>
+
+            </label>
+
+
+            <div class="center">
+                  <button type="submit">Search</button>
+            </div>
+      </form>
+
+</div>

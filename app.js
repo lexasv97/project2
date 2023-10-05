@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+
+const DOMAIN = 'http://localhost:3000';
+
 var mongoose = require('mongoose')
 var session = require('express-session')
 var MongoStore = require('connect-mongo')
@@ -14,11 +18,17 @@ var creatorAuthRouter = require('./routes/creators-auth')
 var lessonsRouter = require('./routes/lessons')
 var creatorRouter = require('./routes/creators')
 var reviewsRouter = require('./routes/reviews')
+
 var userAuthRouter = require('./routes/user-auth')
 var aiImageRouter = require('./routes/ai-profile-img')
 var selectRouter = require('./routes/select-image')
 
 
+var stripeRouter = require('./routes/stripe');
+const Lesson = require('./models/Lesson');
+
+
+var dynamicNav = require('./middleware/dynamicNav');
 
 var app = express();
 
@@ -77,15 +87,19 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/', indexRouter);
+app.use('/', dynamicNav, indexRouter);
 app.use('/user', usersRouter);
 app.use('/creator-auth', creatorAuthRouter)
 app.use('/lessons', lessonsRouter)
 app.use('/creators', creatorRouter)
 app.use('/reviews', reviewsRouter);
 app.use('/user-auth', userAuthRouter);
+
 app.use('/ai-profile-img', aiImageRouter)
 app.use('/select-image', selectRouter)
+
+app.use('/stripe', stripeRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

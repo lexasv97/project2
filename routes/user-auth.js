@@ -44,7 +44,7 @@ router.post('/user-signup', (req,res,next) => {
                 console.log('Newly created user is: ', createdUser);
                 req.session.user = createdUser;
                 console.log('Session after signup ===> ', req.session)
-                res.redirect('/users/user-profile');
+                res.redirect('/user/user-profile');
             })
             .catch((error) => {
                 console.log(error);
@@ -63,8 +63,9 @@ router.post('/user-signup', (req,res,next) => {
       });
 })
 
-router.get('/user-login', (req, res, next) => {
-  res.render('user-auth/user-login.hbs')
+router.get("/user-login", (req, res, next) => {
+    
+  res.render("user-auth/user-login.hbs")
 })
 
 router.post('/user-login', (req,res,next) => {

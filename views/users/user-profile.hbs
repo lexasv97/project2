@@ -1,12 +1,40 @@
 <div>
 
-    <h2>Welcome, {{ user.fullName }}</h2>
+    <h1>Welcome, {{ user.fullName }}!</h1>
 
-    <div>Log out
-          <a href="/user-auth/user-logout">Log out</a>
+    <a class="button" href="/user/update-user-profile">Update Profile</a>
+
+    <a class="button" href="/lessons/find">Find a Lesson</a>
+
+    {{#if paidLessons}}
+
+    <hr>
+    <div class="center">
+        <h2>Paid lessons</h3>
     </div>
-   
-    <a href="/lessons/all">See All Lessons</a>
-    <a href="/lessons/find">Find a Lesson</a>
+
+    <div class="lesson">
+
+        {{#each paidLessons}}
+
+        <div>
+
+            <h3>{{name}}</h3>
+
+            <img src={{imageUrl}} alt="lesson">
+
+            <p>Format: {{format}}</p>
+
+            <p>Added by: {{owner.fullName}}</p>
+
+            <a href="/lessons/details/{{_id}}">See details</a>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    {{/if}}
 
 </div>

@@ -4,27 +4,29 @@ var router = express.Router();
 const Review = require('../models/Review')
 const Lesson = require('../models/Lesson')
 
-const { isCreatorLoggedIn } = require('../middleware/creator-route-guard')
+const { isUserLoggedIn } = require('../middleware/user-route-guard');
 
-const isCreatorNotOwner = require('../middleware/isCreatorNotOwner')
-
-
-router.post('/new/:lessonId', isCreatorLoggedIn, isCreatorNotOwner, (req, res, next) => {      // isUserLoggedIn !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+router.post('/new/:lessonId', isUserLoggedIn, (req, res, next) => {  
+    console.log("REQ.BODY ====>", req.body) 
+    console.log("LESSON ID ====> ", req.params.lessonId)   
 
     Review.create({
-        creator: req.session.creator._id,
-        comment: req.body.comment
+        user: req.session.user._id,
+        comment: req.body.comment,
+        rating: req.body.rating
     })
         .then((newReview) => {
+            console.log("NEW REVIEW ===>", newReview)
             return Lesson.findByIdAndUpdate(
                 req.params.lessonId,
                 {
-                    $push: { review: newReview._id }
+                    $push: { reviews: newReview._id }
                 },
                 { new: true }
             )
         })
         .then((lessonWithReview) => {
+            console.log("Lesson after review ===>", lessonWithReview)
             res.redirect(`/lessons/details/${lessonWithReview._id}`)
         })
         .catch((err) => {
