@@ -35,7 +35,7 @@ router.get('/new', isCreatorLoggedIn, (req, res, next) => {
 
 router.post('/new', isCreatorLoggedIn, (req,res,next) => {
 
-    const { name, description, imageUrl, price, type } = req.body
+    const { name, description, imageUrl, price, type, format } = req.body
 
     Lesson.create({
         name,
@@ -43,6 +43,7 @@ router.post('/new', isCreatorLoggedIn, (req,res,next) => {
         imageUrl,
         price,
         type,
+        format,
         owner: req.session.creator._id
     })
     .then((createdLesson) => {

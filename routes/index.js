@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'HomePage' });
 });
 
-router.get('/about', (req,res,nexst) => {
+router.get('/about', (req,res,next) => {
   res.render('about')
 })
 
