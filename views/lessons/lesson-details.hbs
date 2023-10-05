@@ -13,9 +13,9 @@
 
 <div>
 
-    <div id="lesson-details">
+    <div class="lesson-details">
 
-        <div id="lesson-name-picture">
+        <div class="lesson-name-picture">
 
             <h3>{{lesson.name}}</h3>
 
@@ -23,7 +23,7 @@
 
         </div>
 
-        <div id="lesson-info">
+        <div class="lesson-info">
 
             <p>{{lesson.description}}</p>
 
@@ -48,7 +48,7 @@
     <hr>
 
     <h4>Leave a review</h4>
-    <form id="review" action="/reviews/new/{{lesson._id}}" method="post">
+    <form if="review" action="/reviews/new/{{lesson._id}}" method="post">
         <label>Rating: </label>
         <select value="rating" name="rating">
             <option value="5">5</option>
@@ -58,23 +58,27 @@
             <option value="1">1</option>
         </select>
         <label for="review">Review:</label>
-        <input type="text" name="comment" id="review">
+        <input type="text" name="comment">
         <button type="submit">Submit Review</button>
     </form>
 
     {{/if}}
 
+    {{#unless isUserLoggedIn}}
+    <div class="center">
+        <p>Log in to leave a review.
+            <a href="/user-auth/user-login">Log in</a>
+        </p>
+    </div>
+    {{/unless}}
 
     {{#if lesson.reviews}}
 
-    <hr>
-
     <div class="center">
-        <h2>Reviews</h2>
+        <h2>Reviews:</h2>
     </div>
-    {{#each lesson.reviews}}
 
-    <hr>
+    {{#each lesson.reviews}}
 
     <p>Rating: {{rating}}. Comment: {{comment}}</p>
 
@@ -83,8 +87,12 @@
     {{/each}}
 
     {{else}}
+
     <div class="center">
         <p>No reviews yet</p>
     </div>
+
+    <hr>
+
     {{/if}}
 </div>

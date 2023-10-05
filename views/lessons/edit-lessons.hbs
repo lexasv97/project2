@@ -3,16 +3,27 @@
 <form action="/lessons/edit/{{_id}}" method="post">
 
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" value="{{name}}">
+    <input type="text" name="name" value="{{name}}">
 
     <label for="description">Description</label>
-    <input type="text" name="description" id="description" value="{{description}}">
+    <input type="text" name="description" class="description" value="{{description}}">
+
+    <label for="type">Type: </label>
+    <select name="type" value="type">
+          <option value="crossfit">CrossFit</option>
+          <option value="personal-training">Personal training</option>
+          <option value="yoga">Yoga</option>
+          <option value="meditation">Meditation</option>
+          <option value="zumba">Zumba</option> 
+          <option value="pilates">Pilates</option> 
+          <option value="cycling">Cycling</option> 
+    </select>
 
     <label for="price">Edit price: </label>
-    <input type="number" name="price" id="price" value="${{price}}">
+    <input type="number" name="price" value="${{price}}">
 
     <label for="imageUrl">Change image</label>
-    <input type="text" name="imageUrl" id="imageUrl" value="{{imageUrl}}">
+    <input type="text" name="imageUrl" value="{{imageUrl}}">
 
     <label for="format">Edit format: </label>
      <select name="format" value="format">

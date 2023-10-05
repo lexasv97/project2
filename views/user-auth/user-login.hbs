@@ -1,26 +1,31 @@
-<div class="form">
-  <div class="center">
-  <h2>User log in</h2>
-</div>
-  <form class="login-signup" action="/user-auth/user-login" method="POST">
+<div class="fix-center">
 
-    <label> Email: </label>
+  <div class="form">
+    <div class="center">
+      <h2>User log in</h2>
+    </div>
+    <form class="login-signup" action="/user-auth/user-login" method="POST">
+
+      <label> Email: </label>
       <input type="email" name="email" placeholder="email@email.com" />
 
-    <label>Password: </label>
+      <label>Password: </label>
       <input type="password" name="password" placeholder="password********" />
-    
-<div class="center">
-    <button type="submit">Login</button>
-</div>
 
-    <div class="=center">
-    <p>Don't have an account yet?
-    <a href="/user-auth/user-signup">Sign up</a></p>
-</div>
+      <div class="center">
+        <button type="submit">Login</button>
+      </div>
 
-    {{#if errorMessage}}
+      <div class="=center">
+        <p>Don't have an account yet?
+          <a href="/user-auth/user-signup">Sign up</a>
+        </p>
+      </div>
+
+      {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+      {{/if}}
+    </form>
+  </div>
+
 </div>

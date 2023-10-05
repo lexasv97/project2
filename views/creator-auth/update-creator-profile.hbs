@@ -1,32 +1,39 @@
-<div class="form">
+<div class="fix-center">
 
-<h2>Update profile</h2>
+    <div class="form">
 
-<form class="login-signup" action="/creators/update-creator-profile" method="post">
+        <h2>Update profile</h2>
 
-    <label for="fullName">Full Name: </label>
-    <input type="text" name="fullName" id="fullName" value="{{fullName}}">
+        <form class="login-signup" action="/creators/update-creator-profile" method="post">
 
-    <label for="password">Password: </label>
-    <input type="password" name="password" placeholder="password********">
+            <label for="fullName">Full Name: </label>
+            <input type="text" name="fullName" value="{{fullName}}">
 
-    <label for="email">Email: </label>
-    <input type="email" name="email" id="email" value="{{email}}">
+            <label for="password">Password: </label>
+            <input type="password" name="password" placeholder="password********">
 
-    <label> Occupation:  </label>
+            <label for="email">Email: </label>
+            <input type="email" name="email" value="{{email}}">
 
-    <select class="input" value="occupation" name="occupation">
-          <option value="crossfit">CrossFit</option>
-          <option value="personal-training">Personal training</option>
-          <option value="yoga">Yoga</option>
-          <option value="meditation">Meditation</option> 
-    </select>
-<div class="center">
+            <label> Occupation: </label>
 
-    <button type="submit">Update</button>
+            <select class="input" value="occupation" name="occupation">
+                <option value="crossfit">CrossFit</option>
+                <option value="personal-training">Personal training</option>
+                <option value="yoga">Yoga</option>
+                <option value="meditation">Meditation</option>
+                <option value="zumba">Zumba</option>
+                <option value="pilates">Pilates</option>
+                <option value="cycling">Cycling</option>
+            </select>
+            <div class="center">
 
-</div>
+                <button type="submit">Update</button>
 
-</form>
+            </div>
+
+        </form>
+
+    </div>
 
 </div>

@@ -2,6 +2,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 
   display: flex;
+  background-image: url("");;
 
 }
 
@@ -11,6 +12,13 @@ a {
 
 img {
   width: 300px;
+}
+
+.error {
+  background-color: #eb3636;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .orange-black {
@@ -23,29 +31,16 @@ img {
   display: flex;
   justify-content: space-between;
   width: 78vw;
-  height: 10hv;
+  height: 15hv;
   padding-left: 10vw;
   padding-right: 10vw;
-}
-
-#main-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 20vw;
-  padding-right: 20vw;
+  align-items: center;
 }
 
 #choice {
   display: flex;
   justify-content: space-evenly;
 
-}
-
-#whole-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 #whole-page {
@@ -99,6 +94,7 @@ button {
 .center {
   display: flex;
   justify-content: center;
+  margin: 5px;
 }
 
 .login-signup {
@@ -122,22 +118,24 @@ input {
   margin: 0;
   justify-content: space-evenly;
   align-items: center;
+  background-color: white;
+  border-radius: 5px;
 }
 
-#lesson-details {
+.lesson-details {
   display: flex;
   flex-direction: row;
   
 }
 
-#lesson-name-picture {
+.lesson-name-picture {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 30vw;
 }
 
-#lesson-info {
+.lesson-info {
   display: flex;
   flex-direction: column;
   margin-left: 10vw;
@@ -147,4 +145,13 @@ input {
 .mini-nav {
   display: flex;
   justify-content: space-around;
+}
+
+.fix-center {
+  padding-top: 20vh;
+}
+
+#review {
+  display: flex;
+  flex-direction: row;
 }

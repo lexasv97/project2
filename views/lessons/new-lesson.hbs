@@ -1,33 +1,40 @@
-<h2>Add a lesson</h2>
+<div class="fix-center">
+      <div class="center">
+            <h2>Add a lesson</h2>
+      </div>
+      <form class="login-signup" action="/lessons/new" method="post">
 
-<form action="/lessons/new" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name">
 
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name">
+            <label for="description">Description:</label>
+            <input type="text" name="description">
 
-    <label for="description">Description</label>
-    <input type="text" name="description" id="description">
+            <label for="imageUrl">Image:</label>
+            <input type="text" name="imageUrl">
 
-    <label for="imageUrl">Image</label>
-    <input type="text" name="imageUrl" id="imageUrl">
+            <label for="type">Type: </label>
+            <select name="type" value="type">
+                  <option value="crossfit">CrossFit</option>
+                  <option value="personal-training">Personal training</option>
+                  <option value="yoga">Yoga</option>
+                  <option value="meditation">Meditation</option>
+                  <option value="zumba">Zumba</option>
+                  <option value="pilates">Pilates</option>
+                  <option value="cycling">Cycling</option>
+            </select>
 
-    <label for="type">Type: </label>
-    <select name="type" value="type">
-          <option value="you-name-it">You name it</option>
-          <option value="yoga">Yoga</option>
-          <option value="crossfit">Crossfit</option>
-          <option value="dancing">Dancing</option> 
-    </select>
+            <label for="price">Set price:</label>
+            <input type="number" name="price">
 
-     <label for="price">Set price</label>
-    <input type="number" name="price" id="price">
+            <label for="format">Format: </label>
+            <select name="format" value="format">
+                  <option value="online">Online</option>
+                  <option value="in-person">In-person</option>
+            </select>
 
-    <label for="format">Format: </label>
-     <select name="format" value="format">
-          <option value="online">Online</option>
-          <option value="in-person">In-person</option>
-    </select>
+            <button type="submit">Add lesson</button>
 
-    <button type="submit">Add lesson</button>
+      </form>
 
-</form>
+</div>

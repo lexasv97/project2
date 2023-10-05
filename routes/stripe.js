@@ -35,8 +35,8 @@ router.get('/:lessonId', isUserLoggedIn, async (req, res, next) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: `http://localhost:3000/lessons/payment-confirmation/${lessonId}`, 
-            cancel_url: 'http://localhost:3000/lessons/all',
+            success_url: `https://project2-watodoo.adaptable.app/lessons/payment-confirmation/${lessonId}`, 
+            cancel_url: 'https://project2-watodoo.adaptable.app/lessons/all',
         });
         console.log("Session ===============>", session);
         res.redirect(session.url);
