@@ -5,7 +5,8 @@ const creatorSchema = new Schema(
       email: String,
       password: String,
       fullName: String,
-      occupation: String
+      occupation: String,
+      profileImage: String
     },
     {
       timestamps: true
