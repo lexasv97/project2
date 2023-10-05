@@ -1,23 +1,22 @@
-<div id="form">
+<div class="form">
+  <div class="center">
   <h2>User log in</h2>
+</div>
+  <form class="login-signup" action="/user-auth/user-login" method="POST">
 
-  <form action="/user-auth/user-login" method="POST">
-
-    <label> Email
+    <label> Email: </label>
       <input type="email" name="email" placeholder="JohnSmith@hotmail.com" />
-    </label>
 
-    <label>Password</label>
+    <label>Password: </label>
       <input type="password" name="password" placeholder="********" />
     
-
+<div class="center">
     <button type="submit">Login</button>
+</div>
 
-     <input type="reset" value="Reset">
-
-    <div>
-    <div>Don't have an account yet?</div>
-    <a href="/user-auth/user-signup">Sign up</a>
+    <div class="=center">
+    <p>Don't have an account yet?
+    <a href="/user-auth/user-signup">Sign up</a></p>
 </div>
 
     {{#if errorMessage}}

@@ -1,26 +1,32 @@
+<div class="form">
+
 <h2>Update profile</h2>
 
-<form action="/creators/update-creator-profile" method="post">
+<form class="login-signup" action="/creators/update-creator-profile" method="post">
 
     <label for="fullName">Full Name: </label>
     <input type="text" name="fullName" id="fullName" value="{{fullName}}">
 
     <label for="password">Password: </label>
-    <input type="password" name="password" placeholder="********">
+    <input type="password" name="password" placeholder="password********">
 
     <label for="email">Email: </label>
     <input type="email" name="email" id="email" value="{{email}}">
 
-    <label> Occupation: 
+    <label> Occupation:  </label>
 
-    <select value="occupation" name="occupation">
+    <select class="input" value="occupation" name="occupation">
           <option value="you-name-it">You name it</option>
           <option value="yoga">Yoga</option>
           <option value="crossfit">Crossfit</option>
           <option value="dancing">Dancing</option> 
     </select>
-    </label>
+<div class="center">
 
     <button type="submit">Update</button>
 
+</div>
+
 </form>
+
+</div>

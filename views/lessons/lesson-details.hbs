@@ -1,30 +1,47 @@
-<h2>Lesson details</h2>
-<div>
+<div class="center">
+    <h2>Lesson details</h2>
+</div>
 
-    <h3>{{lesson.name}}</h3>
-
-    <img src={{lesson.imageUrl}} alt="lesson">
-
-    <p>{{lesson.description}}</p>
-
-    <p>Format: {{lesson.format}}</p>
-
-    <p>Added by: {{lesson.owner.fullName}}</p>
-
-    <p>Price: ${{lesson.price}}</p>
-
-    {{#if isOwner}}
-
+{{#if isOwner}}
+<p class="mini-nav">
+    <a href="/lessons/new">Add a new lesson</a>
     <a href="/lessons/edit/{{lesson._id}}">Edit lesson</a>
     <a href="/lessons/delete/{{lesson._id}}">Delete lesson</a>
+</p>
 
-    {{/if}}
+{{/if}}
 
-    {{#unless isOwner}}
+<div>
 
-   <button><a href ="/stripe/{{lesson._id}}">Buy lesson</a></button>
+    <div id="lesson-details">
 
-    {{/unless}}
+        <div id="lesson-name-picture">
+
+            <h3>{{lesson.name}}</h3>
+
+            <img src={{lesson.imageUrl}} alt="lesson">
+
+        </div>
+
+        <div id="lesson-info">
+
+            <p>{{lesson.description}}</p>
+
+            <p>Format: {{lesson.format}}</p>
+
+            <p>Added by: {{lesson.owner.fullName}}</p>
+
+            <p>Price: ${{lesson.price}}</p>
+
+            {{#unless isOwner}}
+
+            <button><a class="font-white" href="/stripe/{{lesson._id}}">Buy lesson</a></button>
+
+            {{/unless}}
+
+        </div>
+
+    </div>
 
     {{#if isUserLoggedIn}}
 
@@ -50,19 +67,24 @@
 
     {{#if lesson.reviews}}
 
+    <hr>
+
+    <div class="center">
+        <h2>Reviews</h2>
+    </div>
     {{#each lesson.reviews}}
 
     <hr>
 
     <p>Rating: {{rating}}. Comment: {{comment}}</p>
-    
+
     <h6>- {{user.fullName}}</h6>
 
     {{/each}}
 
     {{else}}
-
-    <p>No reviews yet</p>
-
+    <div class="center">
+        <p>No reviews yet</p>
+    </div>
     {{/if}}
 </div>
