@@ -63,8 +63,9 @@ router.post('/user-signup', (req,res,next) => {
       });
 })
 
-router.get('/user-login', (req, res, next) => {
-  res.render('user-auth/user-login.hbs')
+router.get("/user-login", (req, res, next) => {
+    
+  res.render("user-auth/user-login.hbs")
 })
 
 router.post('/user-login', (req,res,next) => {
