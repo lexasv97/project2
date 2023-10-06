@@ -6,12 +6,12 @@
             <img src="{{user.profileImage}}" alt="user-image" />
         </div>
         <div class="lesson-info">
-            <a class="button" href="/user/update-user-profile">Update Profile</a>
-
             <a class="button" href="/lessons/find">Find a Lesson</a>
+
+            <a class="button" href="/user/update-user-profile">Update Profile</a>
         </div>
     </div>
-    {{#if paidLessons}}
+    {{#if user.paidLessons}}
 
     <hr>
     <div class="center">
@@ -20,7 +20,7 @@
 
     <div class="lesson">
 
-        {{#each paidLessons}}
+        {{#each user.paidLessons}}
 
         <div class="column">
 
