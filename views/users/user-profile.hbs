@@ -1,7 +1,9 @@
+{{#if user}}
+
 <div>
 
     <h1>Welcome, {{ user.fullName }}!</h1>
-
+    <img src="{{user.profileImage}}" alt="user-image"/>
     <a class="button" href="/user/update-user-profile">Update Profile</a>
 
     <a class="button" href="/lessons/find">Find a Lesson</a>
@@ -38,3 +40,5 @@
     {{/if}}
 
 </div>
+
+{{/if}}

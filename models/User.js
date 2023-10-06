@@ -6,6 +6,7 @@ const userSchema = new Schema(
       password: String,
       fullName: String,
       occupation: String,
+      profileImage: String,
       paidLessons: [{ type: Schema.Types.ObjectId, ref: "Lesson" }]
     },
     {

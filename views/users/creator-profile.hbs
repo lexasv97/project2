@@ -1,8 +1,9 @@
+
+{{#if creator}}
 <div>
 
-
     <h2>Welcome, {{creator.fullName}}</h2>
-    <img src="{{creator.profileImage}}" alt="user image"/>
+    <img src="{{creator.profileImage}}" alt="user-image"/>
     <a href="/creators/update-creator-profile">Update Profile</a>
 
 
@@ -23,3 +24,5 @@
     {{/if}}
     
 </div>
+
+{{/if}}
