@@ -1,20 +1,33 @@
-<h1>Profile Pictures</h1>
+<div class = "imageSelectorHeading">
+<h1>Select Profile Picture</h1>
+</div>
 
 <div>
 
+ <div id="container-container">
+
+<div id="generator-container">
 
 {{#each images}}
 <form action = "/ai-profile-img/update/profile-image" method = "post">
-    
-    <img src="{{url}}" alt="whatever"/>  COMMENTED OUT FOR TESTING, UNCOMENT AND DELETE NEXT LINE
+    <div class = "image-container">
+    <div class = "imageGenerator">
+    <img src="{{url}}" alt="whatever"/>  
     {{!-- <img src="/610D6aQ-SYL.jpg" alt="whatever"/>  --}}
+   </div>
    
-    <button type="submit">  I want this one! <input type="text" hidden value={{url}} name="selectedImage"></button> UNCOMMENT THIS AND DELETE NEXT LINE
+    <button type="submit">  I want this one! <input type="text" hidden value={{url}} name="selectedImage"></button> 
     {{!-- <button type="submit">  I want this one! <input type="text" hidden value="DOGGO" name="selectedImage"></button> --}}
-   
+    </div>
 </form>
 
 {{/each}}
+
+</div>
+
+
+ </div>   
+
 
     
 

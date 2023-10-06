@@ -6,7 +6,10 @@ const userSchema = new Schema(
       password: String,
       fullName: String,
       occupation: String,
-      profileImage: String,
+      profileImage: {
+        type: String,
+        default: '/images/blankProfile.png'
+    },
       paidLessons: [{ type: Schema.Types.ObjectId, ref: "Lesson" }]
     },
     {
