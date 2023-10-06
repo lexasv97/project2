@@ -19,8 +19,11 @@ router.get('/user-profile', isUserLoggedIn, (req, res, next) => {
         path: "owner"
         }
     })
-    .then((foundUser) => {
-        res.render('users/user-profile.hbs', foundUser)
+    .then((user) => {
+        if(user){
+            console.log("FOUND USER ===>", user)
+            res.render('users/user-profile.hbs', { user})
+        }
     })
     .catch((err) => {
         console.log(err)
