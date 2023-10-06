@@ -6,6 +6,8 @@ const saltRounds = 10;
 
 const Creator = require('../models/Creator')
 
+const { isUserLoggedOut } =require('../middleware/user-route-guard')
+
 router.get('/creator-signup', (req, res, next) => {
 
     res.render('creator-auth/creator-signup.hbs')
@@ -63,11 +65,11 @@ router.post('/creator-signup', (req,res,next) => {
       });
 })
 
-router.get('/creator-login', (req, res, next) => {
+router.get('/creator-login', isUserLoggedOut, (req, res, next) => {
   res.render('creator-auth/creator-login.hbs')
 })
 
-router.post('/creator-login', (req,res,next) => {
+router.post('/creator-login', isUserLoggedOut, (req,res,next) => {
     console.log('Session ===> ', req.session);
     const {email,password} = req.body;
 

@@ -1,28 +1,42 @@
-
 {{#if creator}}
-<div>
+<h1>Welcome, {{creator.fullName}}</h1>
+<div class="lesson-details">
+    <div class="lesson-name-picture">
 
-    <h2>Welcome, {{creator.fullName}}</h2>
-    <img src="{{creator.profileImage}}" alt="user-image"/>
-    <a href="/creators/update-creator-profile">Update Profile</a>
+        <img src="{{creator.profileImage}}" alt="user-image" />
+    </div>
+    <div class="lesson-info">
+        <a class="button" href="/creators/update-creator-profile">Update Profile</a>
 
 
-    <a class="button" href="/lessons/new">Add a lesson</a>
+        <a class="button" href="/lessons/new">Add a lesson</a>
 
     </div>
 
-    {{#if lessons}}
-
-        <h3>Listed lessons</h3>
-
-        {{#each lessons}}
-
-            <a href="/lessons/details/{{_id}}">{{name}}</a>
-
-        {{/each}}
-
-    {{/if}}
-    
 </div>
+
+{{#if lessons}}
+
+<h3>Listed lessons</h3>
+
+<div class="lesson">
+
+    {{#each lessons}}
+
+    <div class="column">
+
+        <img src={{imageUrl}} alt="lesson">
+
+        <a href="/lessons/details/{{_id}}">{{name}}</a>
+
+    </div>
+
+    {{/each}}
+
+</div>
+
+{{/if}}
+
+
 
 {{/if}}

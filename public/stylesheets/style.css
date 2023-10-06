@@ -12,6 +12,7 @@ a {
 
 img {
   width: 300px;
+  height: 180px;
 }
 
 .error {
@@ -58,6 +59,7 @@ img {
   justify-content: center;
   border-radius: 5px;
   align-items: center;
+  margin: 10px;
 }
 
 button {
@@ -71,6 +73,7 @@ button {
   border-radius: 5px;
   align-items: center;
   color: white;
+  margin: 10px;
 }
 
 .button-content {
@@ -162,4 +165,14 @@ input {
   justify-content: center;
   margin-left: 10vw;
   margin-right: 10vw;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }

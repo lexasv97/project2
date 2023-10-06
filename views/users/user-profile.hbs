@@ -1,13 +1,16 @@
 {{#if user}}
-
+<h1>Welcome, {{ user.fullName }}!</h1>
 <div>
+    <div class="lesson-details">
+        <div class="lesson-name-picture">
+            <img src="{{user.profileImage}}" alt="user-image" />
+        </div>
+        <div class="lesson-info">
+            <a class="button" href="/user/update-user-profile">Update Profile</a>
 
-    <h1>Welcome, {{ user.fullName }}!</h1>
-    <img src="{{user.profileImage}}" alt="user-image"/>
-    <a class="button" href="/user/update-user-profile">Update Profile</a>
-
-    <a class="button" href="/lessons/find">Find a Lesson</a>
-
+            <a class="button" href="/lessons/find">Find a Lesson</a>
+        </div>
+    </div>
     {{#if paidLessons}}
 
     <hr>
@@ -19,7 +22,7 @@
 
         {{#each paidLessons}}
 
-        <div>
+        <div class="column">
 
             <h3>{{name}}</h3>
 
@@ -33,6 +36,14 @@
 
         {{/each}}
 
+    </div>
+
+    {{else}}
+
+    <hr>
+
+    <div class="center">
+        <p>You paid lessons will appear here</p>
     </div>
 
     {{/if}}
