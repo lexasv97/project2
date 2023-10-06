@@ -10,33 +10,31 @@
 
 </head>
 
-<body>
+<body style="background-image: url('/images/green-orange.png')">
 
   <div id="whole-page">
 
     <nav id="nav">
 
-      <img href="/" id="logo" src="/images/WTD_PNG_V1.png" alt="logo">
+      <a href="/"><img id="logo" src="/images/WTD_PNG_V1.png" alt="logo"></a>
 
-      <a href="/">Home</a>
+      <a class="nav-link" href="/lessons/all">All lessons</a>
 
-      <a href="/lessons/all">All lessons</a>
-
-      <a href="/about">About</a>
+      <a class="nav-link" href="/about">About</a>
 
       {{#if loggedInCreator}}
 
-      <a href="/creators/creator-profile">My Profile</a>
+      <a class="nav-link" href="/creators/creator-profile">My Profile</a>
 
-      <a href="/creator-auth/creator-logout">Log out</a>
+      <a class="nav-link" href="/creator-auth/creator-logout">Log out</a>
 
       {{/if}}
 
       {{#if loggedInUser}}
 
-      <a href="/user/user-profile">My Profile</a>
+      <a class="nav-link" href="/user/user-profile">My Profile</a>
 
-      <a href="/user-auth/user-logout">Log out</a>
+      <a class="nav-link" href="/user-auth/user-logout">Log out</a>
 
       {{/if}}
 

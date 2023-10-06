@@ -11,9 +11,12 @@
             <a class="button" href="/user/update-user-profile">Update Profile</a>
         </div>
     </div>
+
+
     {{#if user.paidLessons}}
 
     <hr>
+
     <div class="center">
         <h2>Paid lessons</h3>
     </div>
@@ -22,15 +25,15 @@
 
         {{#each user.paidLessons}}
 
-        <div class="column">
+        <div class="each-lesson">
 
-            <h3>{{name}}</h3>
+            <h3 class="see-details">{{name}}</h3>
 
             <img src={{imageUrl}} alt="lesson">
 
-            <p>Format: {{format}}</p>
+            <p class="see-details">Format: {{format}}</p>
 
-            <p>Added by: {{owner.fullName}}</p>
+            <p class="see-details">Added by: {{owner.fullName}}</p>
 
         </div>
 

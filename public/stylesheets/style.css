@@ -2,6 +2,11 @@ body {
   font: 14px;
   font-family: "Archivo";
   display: flex;
+  min-height: 100vh;
+  width: 98vw;
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
 a {
@@ -58,7 +63,7 @@ img {
   border-radius: 5px;
   align-items: center;
   margin: 10px;
-  font-style: normal;
+  text-decoration: none
 }
 
 button {
@@ -73,6 +78,7 @@ button {
   align-items: center;
   color: white;
   margin: 10px;
+  text-decoration: none
 }
 
 .button-content {
@@ -117,17 +123,25 @@ input {
 .lesson {
   display: flex;
   flex-flow: row wrap;
-  margin: 0;
   justify-content: space-evenly;
   align-items: center;
-  background-color: white;
+  
+}
+
+.each-lesson {
+  margin: 3px;
   border-radius: 5px;
+  background-color: white;
+  color: black;
+}
+
+.see-details {
+  padding-left: 5px;
 }
 
 .lesson-details {
   display: flex;
   flex-direction: row;
-  
 }
 
 .lesson-name-picture {
@@ -179,4 +193,14 @@ input {
 #logo {
   width: 80px;
   height: 80px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.profile-picture {
+  width: 250px;
+  height: 250px;
 }

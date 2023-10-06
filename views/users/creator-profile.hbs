@@ -17,17 +17,25 @@
 
 {{#if lessons}}
 
+<hr>
+
 <h3>Listed lessons</h3>
 
 <div class="lesson">
 
     {{#each lessons}}
 
-    <div class="column">
+    <div class="each-lesson">
 
-        <img src={{imageUrl}} alt="lesson">
+        <div class="column">
 
-        <a href="/lessons/details/{{_id}}">{{name}}</a>
+            <h3 class="see-details">{{name}}</h3>
+
+            <img src={{imageUrl}} alt="lesson">
+
+            <a class="see-details" href="/lessons/details/{{_id}}">{{name}}</a>
+
+        </div>
 
     </div>
 

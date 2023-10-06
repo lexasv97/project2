@@ -37,8 +37,6 @@ router.post('/update-creator-img', async (req, res, next) => {
          catch (error) {
             console.error(error)
         }
-    
-
 })
 
 
