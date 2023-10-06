@@ -8,13 +8,13 @@
 
     <div class="each-lesson">
 
-        <h3>{{name}}</h3>
+        <h3 class="see-details">{{name}}</h3>
 
         <img src={{imageUrl}} alt="lesson">
 
-        <p>added by: {{owner.fullName}}</p>
+        <p class="see-details">added by: {{owner.fullName}}</p>
 
-        <a href="/lessons/details/{{_id}}">See details</a>
+        <a class="see-details" href="/lessons/details/{{_id}}">See details</a>
 
     </div>
 
