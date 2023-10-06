@@ -5,6 +5,8 @@ const Lesson = require('../models/Lesson');
 
 const User = require('../models/User');
 
+const Creator = require('../models/Creator')
+
 const {isCreatorLoggedIn} = require('../middleware/creator-route-guard')
 
 const isCreatorOwner = require('../middleware/isCreatorOwner')
