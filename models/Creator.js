@@ -6,8 +6,11 @@ const creatorSchema = new Schema(
       password: String,
       fullName: String,
       occupation: String,
-      profileImage: String
-    },
+      profileImage: {
+        type: String,
+        default: '/images/blankProfile.png'
+    }
+  },
     {
       timestamps: true
     }
