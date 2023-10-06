@@ -145,6 +145,7 @@ router.get('/find', (req, res, next) => {
 router.get('/results', (req, res, next) => {
 
     Lesson.find({type: req.query.lessonType})
+    .populate('owner')
     .then((lessons) => {
         console.log(lessons)
         res.render('lessons/results-lessons.hbs', {lessons})
