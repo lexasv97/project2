@@ -1,36 +1,39 @@
-<div class="center">
+<div>
 
-    <h2>All lessons</h2>
+ <div class="center">
+        <a class="button" href="/lessons/find">Find lesson</a>
+    </div>
 
-</div>
+    <div class="center">
 
-<div class="center">
-    <a class="button" href="/lessons/find">Find lessons</a>
-</div>
-
-
-{{#if lessons}}
-<div class="lesson">
-    {{#each lessons}}
-
-    <div>
-
-        <h3>{{name}}</h3>
-
-        <img src={{imageUrl}} alt="lesson">
-
-        <p>added by: {{owner.fullName}}</p>
-
-        <a href="/lessons/details/{{_id}}">See details</a>
+        <h2>All lessons:</h2>
 
     </div>
 
-    {{/each}}
+    {{#if lessons}}
+    <div class="lesson" id="all-lessons">
+        {{#each lessons}}
+
+        <div class="each-lesson">
+
+            <h3 class="see-details">{{name}}</h3>
+
+            <img src={{imageUrl}} alt="lesson">
+
+            <p class="see-details">added by: {{owner.fullName}}</p>
+
+            <a class="see-details" href="/lessons/details/{{_id}}">See details</a>
+
+        </div>
+
+        {{/each}}
+
+    </div>
+
+    {{else}}
+    <div class="center">
+        <p>No listed lessons found</p>
+    </div>
+    {{/if}}
 
 </div>
-
-{{else}}
-<div class="center">
-    <p>No listed lessons found</p>
-</div>
-{{/if}}
